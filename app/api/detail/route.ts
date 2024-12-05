@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export const GET = (req: NextRequest, res: NextResponse) => {
+export const GET = () => {
   return NextResponse.json({ test: "hi" });
 };
