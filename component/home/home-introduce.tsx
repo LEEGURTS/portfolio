@@ -21,7 +21,7 @@ const HomeIntroduce = () => {
   return (
     <AnimatePresence>
       {isShow && (
-        <FadeInOut className="fixed text-xl font-semibold left-8 lg:left-16 top-16 lg:top-24 font-drukwide">
+        <FadeInOut className="fixed text-xl font-semibold left-8 lg:left-16 top-16 lg:top-24">
           {text}
           <span className="cursor w-0.5 border-r-2 animate-blink-caret" />
         </FadeInOut>
