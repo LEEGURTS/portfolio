@@ -24,4 +24,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-stroke-black {
+    -webkit-text-stroke: 0.125rem black;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
