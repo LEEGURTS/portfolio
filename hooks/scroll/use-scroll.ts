@@ -6,6 +6,7 @@ const useContainerScroll = () => {
 
   const { scrollY, scrollYProgress } = useScroll({
     container: scrollRef,
+    layoutEffect: false,
   });
 
   useEffect(() => {

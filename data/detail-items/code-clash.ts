@@ -1,6 +1,12 @@
 import { DetailDataType } from "../detail";
 import Thumbnail from "@/assets/img/codeclash/main.png";
 import LoginGif from "@/assets/img/codeclash/login.gif";
+import ChatGif from "@/assets/img/codeclash/chat.gif";
+import EnterRoomGif from "@/assets/img/codeclash/enter-room.gif";
+import GetItemGif from "@/assets/img/codeclash/get-item.gif";
+import GetResultGif from "@/assets/img/codeclash/get-result.gif";
+import IntroduceGif from "@/assets/img/codeclash/introduce.gif";
+
 export const codeClashData: DetailDataType = {
   thumbnail: Thumbnail,
   mainExplanations: {
@@ -12,9 +18,11 @@ export const codeClashData: DetailDataType = {
       "또한 게임 후 풀었던 문제의 기록, 풀이 등을 확인 하는 기능을 통해 재미와 학습, 두마리의 토끼를 모두 잡았습니다.",
     ],
   },
-  duration: "2024.11 - 2024.12",
-  fe_dev: ["이근성", "지현배"],
-  be_dev: ["이동하", "김찬우"],
+  sideInfo: {
+    duration: "2024.11 - 2024.12",
+    fe_dev: ["이근성", "지현배"],
+    be_dev: ["이동하", "김찬우"],
+  },
   imageExplanations: [
     {
       image: LoginGif,
@@ -22,6 +30,42 @@ export const codeClashData: DetailDataType = {
       description: [
         "처음 접속시에 만나 볼 수 있는 로그인 페이지 입니다. JWT를 통해 인증/인가를 처리하고 있습니다.",
         "미니멀한 디자인, 게임 스타트 키를 통해 신나는 게임의 분위기를 느낄 수 있습니다.",
+      ],
+    },
+    {
+      image: EnterRoomGif,
+      title: "로비 접속",
+      description: ["로비를 통해 여러 게임에 원하는대로 접속 할 수 있습니다."],
+    },
+    {
+      image: ChatGif,
+      title: "채팅",
+      description: [
+        "로비에서 여러 사람들과 소통을 나눌 수 있습니다.",
+        "게임 시작 전 가벼운 담소를 나눌 수 있습니다.",
+      ],
+    },
+    {
+      image: IntroduceGif,
+      title: "가이드",
+      description: [
+        "처음 게임을 접하는 사람도 쉽게 접하도록 가이드를 제공합니다.",
+      ],
+    },
+    {
+      image: GetItemGif,
+      title: "게임 아이템",
+      description: [
+        "여러 게임 아이템을 통해 알고리즘 문제 풀이에 재미를 느낄 수 있습니다.",
+        "화면 가리기, 줄 바꾸기, 언어 바꾸기 등 여러 아이템으로 상대와 대전할 수 있습니다.",
+      ],
+    },
+    {
+      image: GetResultGif,
+      title: "결과 확인",
+      description: [
+        "순위를 확인하고 다른 사람의 풀이를 확인 할 수 있습니다.",
+        "게임 결과를 확인하며 풀었던 문제에 대한 복습도 가능합니다.",
       ],
     },
   ],

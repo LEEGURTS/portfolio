@@ -56,7 +56,7 @@ const HomeContentList = ({ contentList }: HomeContentListProps) => {
       exit="hidden"
       transition={{ type: "linear", duration: 0.25 }}
     >
-      {contentList.map(({ href, title }) => (
+      {contentList?.map(({ href, title }) => (
         <HomeContentItem key={href + title} href={href} title={title} />
       ))}
     </motion.div>

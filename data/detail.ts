@@ -12,18 +12,23 @@ interface ExplanationsType {
   detailExplanation: string[];
 }
 
-export interface DetailDataType {
-  thumbnail: StaticImageData;
-  mainExplanations: ExplanationsType;
-  subExplanations?: ExplanationsType;
+interface SideInfoType {
   url?: string;
   github?: string;
   notion?: string;
   duration?: string;
   fe_dev?: string[];
   be_dev?: string[];
+}
+
+export interface DetailDataType {
+  thumbnail: StaticImageData;
+  mainExplanations: ExplanationsType;
+  subExplanations?: ExplanationsType;
+  sideInfo: SideInfoType;
   imageExplanations: imageExplanationsType[];
   moreDetail?: string[];
+  nextPage?: string;
 }
 
 export const DetailData: Record<string, DetailDataType> = {

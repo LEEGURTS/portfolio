@@ -6,19 +6,25 @@ import MailSVG from "@/assets/svg/mail-svg";
 
 import { AnimatePresence, useMotionValueEvent } from "motion/react";
 import { usePathname } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FadeInOut from "../effect/fade-in-out";
 import useContainerScroll from "@/hooks/scroll/use-scroll";
 const Footer = () => {
   const url = usePathname();
   const isRoot = useMemo(() => (url.startsWith("/home") ? true : false), [url]);
   const [isTextTransparent, setIsTransparent] = useState(false);
-  const { scrollY } = useContainerScroll();
-  console.log(isTextTransparent);
-  useMotionValueEvent(scrollY, "change", (current) => {
-    if (!isRoot && current) setIsTransparent(true);
+
+  const { scrollYProgress } = useContainerScroll();
+
+  useMotionValueEvent(scrollYProgress, "change", (current) => {
+    if (!isRoot && current && current !== 1) setIsTransparent(true);
     else setIsTransparent(false);
   });
+
+  useEffect(() => {
+    if (!isRoot) scrollYProgress.set(0);
+  }, [isRoot, scrollYProgress]);
+
   return (
     <AnimatePresence>
       {!isTextTransparent && (

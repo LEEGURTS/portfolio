@@ -13,10 +13,9 @@ const containerVariants: Variants = {
   },
   show: {
     opacity: 1,
-    y: 0,
     transition: {
-      delayChildren: 0.1,
-      staggerChildren: 0.1,
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -24,14 +23,19 @@ const containerVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
+    y: 100,
   },
   show: {
     opacity: 1,
+    transition: { duration: 0.5 },
+    y: 0,
   },
 };
 
 const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
-  const { mainExplanations, url, duration, fe_dev, be_dev } = detail;
+  const { mainExplanations, sideInfo } = detail;
+  const { url, duration, fe_dev, be_dev } = sideInfo;
+  console.log(sideInfo);
   return (
     <motion.div
       className="flex flex-col sm:flex-row w-full justify-between gap-4"

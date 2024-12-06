@@ -13,7 +13,7 @@ const homeContent: HomeDataType[] = [
 ];
 
 const sideProjectContent: HomeDataType[] = [
-  { href: "/detail/code-clash", title: `CODE CLASH` },
+  { href: "/detail/code-clash", title: `CODE\nCLASH` },
 ];
 
 const homePathData: Record<string, HomeDataType[]> = {
