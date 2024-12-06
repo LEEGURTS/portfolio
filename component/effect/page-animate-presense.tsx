@@ -17,6 +17,7 @@ const PageAnimatePresence = ({ children }: PropsWithChildren) => {
        */}
       <motion.div
         key={process.env.NODE_ENV === "development" ? Math.random() : pathname}
+        className="w-full h-full"
       >
         <FrozenRoute>{children}</FrozenRoute>
       </motion.div>

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValueEvent, useScroll, Variants } from "motion/react";
+import { useState } from "react";
+import { motion, useMotionValueEvent, Variants } from "motion/react";
 import HomeContentItem from "./home-content-item";
+import useContainerScroll from "@/hooks/scroll/use-scroll";
 
 const textContainerVariants: Variants = {
   hidden: {
@@ -28,11 +29,7 @@ interface HomeContentListProps {
 }
 
 const HomeContentList = ({ contentList }: HomeContentListProps) => {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  const { scrollY } = useScroll({
-    container: scrollRef,
-  });
+  const { scrollY, scrollRef } = useContainerScroll();
 
   const [transAngle, setTransAngle] = useState(25);
 
@@ -46,18 +43,12 @@ const HomeContentList = ({ contentList }: HomeContentListProps) => {
     }
   });
 
-  useEffect(() => {
-    const scrollBody = document.body.querySelector(
-      "#scroll-body"
-    ) as HTMLDivElement;
-    scrollRef.current = scrollBody;
-  });
-
   return (
     <motion.div
-      className="relative text-right list-none flex flex-col justify-center"
+      className="relative text-right list-none flex flex-col justify-center overflow-clip"
       style={{
         perspectiveOrigin: `50% ${transAngle}%`,
+        willChange: "transform",
       }}
       variants={textContainerVariants}
       initial="hidden"

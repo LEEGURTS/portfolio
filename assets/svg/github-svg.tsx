@@ -18,7 +18,7 @@ const GithubSVG = () => {
       </g>
       <defs>
         <clipPath id="clip0_435_200">
-          <rect width="3rem" height="3rem" fill="white" />
+          <rect width="48" height="48" fill="white" />
         </clipPath>
       </defs>
     </svg>

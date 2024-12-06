@@ -13,7 +13,10 @@ const RoutePrevious = ({ className }: RoutePreviousProps) => {
   const handleRoutePrevious = useCallback(() => router.back(), [router]);
 
   return (
-    <button className={className} onClick={handleRoutePrevious}>
+    <button
+      className={"z-50 scale-125 " + className}
+      onClick={handleRoutePrevious}
+    >
       <ArrowSVG />
     </button>
   );

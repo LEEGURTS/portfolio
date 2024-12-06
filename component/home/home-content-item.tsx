@@ -30,9 +30,6 @@ const HomeContentItem = ({ title, year, href }: HomeContentItemProps) => {
         transformStyle: "preserve-3d",
       }}
       variants={textVariants}
-      whileHover={{
-        rotateY: -40,
-      }}
     >
       <Link
         href={href}
