@@ -17,9 +17,11 @@ const NameLogo = () => {
     if (!isRoot && current && current !== 1) setIsTransparent(true);
     else setIsTransparent(false);
 
-    if (current === 1) setIsScrollBottom(true);
+    if (current == 1) setIsScrollBottom(true);
     else setIsScrollBottom(false);
   });
+
+  console.log(isScrollBottom);
 
   useEffect(() => {
     if (!isRoot) scrollYProgress.set(0);
@@ -28,8 +30,12 @@ const NameLogo = () => {
   return (
     <Link
       href="/"
-      className={`fixed left-16 font-black text-3xl duration-500 bottom-[calc(100dvh-6rem)] ${
-        isRoot ? "lg:bottom-36" : isScrollBottom ? "lg:bottom-36" : ""
+      className={`fixed left-8 lg:left-16 font-black text-3xl duration-500 bottom-[calc(100dvh-6rem)] ${
+        isRoot
+          ? "bottom-28 lg:bottom-36"
+          : isScrollBottom
+          ? "bottom-28 lg:bottom-36"
+          : ""
       } ${
         isTextTransparent
           ? "text-transparent text-stroke-thin opacity-40"

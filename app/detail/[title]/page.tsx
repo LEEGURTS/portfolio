@@ -12,6 +12,7 @@ const DetailPage = async ({ params }: { params: { title: string } }) => {
         <DetailMainExplanation detail={data} />
         <DetailImageList detail={data} />
       </div>
+      <div className="h-48"></div>
     </>
   );
 };

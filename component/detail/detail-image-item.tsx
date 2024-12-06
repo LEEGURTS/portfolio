@@ -14,7 +14,7 @@ const DetailImageItem = ({
   description,
 }: DetailImageItemProps) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 my-32">
+    <div className="flex flex-col sm:flex-row gap-4">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -45,7 +45,7 @@ const DetailImageItem = ({
           transformOrigin: "left center",
           transformStyle: "preserve-3d",
         }}
-        className="relative flex flex-col gap-4 items-start w-48 "
+        className="relative flex flex-col gap-4 items-start w-full sm:w-48"
       >
         <p className="font-semibold">{title}</p>
         {description.map((des, idx) => (

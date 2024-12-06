@@ -2,6 +2,7 @@
 
 import { DetailDataType } from "@/data/detail";
 import { motion, Variants } from "motion/react";
+import Link from "next/link";
 
 interface DetailMainExplanationProps {
   detail: DetailDataType;
@@ -34,7 +35,7 @@ const itemVariants: Variants = {
 
 const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
   const { mainExplanations, sideInfo } = detail;
-  const { url, duration, fe_dev, be_dev } = sideInfo;
+  const { url, duration, fe_dev, be_dev, github, notion } = sideInfo;
   console.log(sideInfo);
   return (
     <motion.div
@@ -72,9 +73,28 @@ const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
         variants={itemVariants}
       >
         {url && (
-          <a href={url} className="font-semibold">
-            {url}
-          </a>
+          <div>
+            <p className="font-semibold">Site URL</p>
+            <Link href={url} className="text-sm" target="_blank">
+              {url}
+            </Link>
+          </div>
+        )}
+        {github && (
+          <div>
+            <p className="font-semibold">Github</p>
+            <Link href={github} className="text-sm" target="_blank">
+              {github}
+            </Link>
+          </div>
+        )}
+        {notion && (
+          <div>
+            <p className="font-semibold">Notion</p>
+            <Link href={notion} className="text-sm" target="_blank">
+              {notion}
+            </Link>
+          </div>
         )}
         {duration && (
           <div>
