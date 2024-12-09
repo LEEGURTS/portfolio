@@ -22,7 +22,7 @@ export const codeClashData: DetailDataType = {
     github: "https://github.com/boostcampwm2023/web06-CodeClash",
     duration: "2024.11 - 2024.12",
     fe_dev: ["이근성", "지현배"],
-    be_dev: ["이동하", "김찬우"],
+    be_dev: ["이동하", "현찬우"],
   },
   imageExplanations: [
     {
