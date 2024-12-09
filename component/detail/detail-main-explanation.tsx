@@ -36,7 +36,7 @@ const itemVariants: Variants = {
 const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
   const { mainExplanations, sideInfo } = detail;
   const { url, duration, fe_dev, be_dev, github, notion } = sideInfo;
-  console.log(sideInfo);
+
   return (
     <motion.div
       className="flex flex-col sm:flex-row w-full justify-between gap-4"
@@ -54,7 +54,7 @@ const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
             {mainExplanations.simpleExplanation}
           </p>
           {mainExplanations.detailExplanation
-            .slice(0, 2)
+            .slice(0, Math.floor(mainExplanations.detailExplanation.length / 2))
             .map((sentence, idx) => (
               <p key={idx}>{sentence}</p>
             ))}
@@ -63,9 +63,11 @@ const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
           className="flex flex-col gap-4 lg:gap-8"
           variants={itemVariants}
         >
-          {mainExplanations.detailExplanation.slice(2).map((sentence, idx) => (
-            <p key={idx}>{sentence}</p>
-          ))}
+          {mainExplanations.detailExplanation
+            .slice(Math.floor(mainExplanations.detailExplanation.length / 2))
+            .map((sentence, idx) => (
+              <p key={idx}>{sentence}</p>
+            ))}
         </motion.div>
       </div>
       <motion.div

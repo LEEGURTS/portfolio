@@ -6,7 +6,7 @@ import EnterRoomGif from "@/assets/img/codeclash/enter-room.gif";
 import GetItemGif from "@/assets/img/codeclash/get-item.gif";
 import GetResultGif from "@/assets/img/codeclash/get-result.gif";
 import IntroduceGif from "@/assets/img/codeclash/introduce.gif";
-
+import tfinder from "@/assets/video/tfinder.mp4";
 export const codeClashData: DetailDataType = {
   thumbnail: Thumbnail,
   mainExplanations: {
