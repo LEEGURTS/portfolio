@@ -4,6 +4,7 @@ import { motion, Variants } from "motion/react";
 interface HomeContentItemProps {
   title: string;
   href: string;
+  subTitle?: string;
   year?: number;
 }
 const textVariants: Variants = {
@@ -22,7 +23,12 @@ const textVariants: Variants = {
   },
 };
 
-const HomeContentItem = ({ title, year, href }: HomeContentItemProps) => {
+const HomeContentItem = ({
+  title,
+  year,
+  href,
+  subTitle,
+}: HomeContentItemProps) => {
   return (
     <motion.div
       style={{
@@ -36,10 +42,17 @@ const HomeContentItem = ({ title, year, href }: HomeContentItemProps) => {
     >
       <Link
         href={href}
-        className="font-black font-drukwide text-[9.5vw] duration-500 justify-end whitespace-pre-wrap leading-none origin-right hover:text-white hover:text-stroke-black hover:text-transparent"
+        className="font-black font-drukwide text-[9.5vw] duration-500 justify-end whitespace-pre-wrap leading-none origin-right "
       >
-        {year && <span className="text-lg text-">{year}</span>}
-        <span>{title}</span>
+        {year && <p className="text-lg">{year}</p>}
+        <p className="duration-500 hover:text-white hover:text-stroke-black hover:text-transparent">
+          {title}
+        </p>
+        {subTitle && (
+          <p className="font-semibold lg:font-bold text-xl sm:text-2xl lg:text-3xl">
+            {subTitle}
+          </p>
+        )}
       </Link>
     </motion.div>
   );

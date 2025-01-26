@@ -8,8 +8,8 @@ interface DetailMainExplanationProps {
 const DetailImageList = ({ detail }: DetailMainExplanationProps) => {
   const { imageExplanations } = detail;
   return (
-    <div className="flex flex-col gap-8 lg:gap-32">
-      {imageExplanations.map((exp, idx) => (
+    <div className="flex flex-col gap-8 lg:gap-32 my-8 lg:my-16">
+      {imageExplanations?.map((exp, idx) => (
         <DetailImageItem
           key={idx}
           image={exp.image}

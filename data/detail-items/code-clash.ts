@@ -24,6 +24,17 @@ export const codeClashData: DetailDataType = {
     fe_dev: ["이근성", "지현배"],
     be_dev: ["이동하", "현찬우"],
   },
+  skills: {
+    feSkills: ["React", "TypeScript", "Socket.io", "JWT"],
+    beSkills: [
+      "Nest.js",
+      "Express",
+      "TypeScript",
+      "Socket.io",
+      "Docker",
+      "JWT",
+    ],
+  },
   imageExplanations: [
     {
       image: LoginGif,

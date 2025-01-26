@@ -21,12 +21,30 @@ interface SideInfoType {
   be_dev?: string[];
 }
 
+interface SkillsType {
+  feSkills?: string[];
+  beSkills?: string[];
+}
+
+interface SolvedProblemType {
+  title: string;
+  content: string[];
+}
+
+interface ContributionType {
+  title: string;
+  content: string[];
+}
+
 export interface DetailDataType {
   thumbnail: StaticImageData;
   mainExplanations: ExplanationsType;
   subExplanations?: ExplanationsType;
+  skills?: SkillsType;
   sideInfo: SideInfoType;
-  imageExplanations: imageExplanationsType[];
+  imageExplanations?: imageExplanationsType[];
+  contributions?: ContributionType[];
+  solvedProblems?: SolvedProblemType[];
   moreDetail?: string[];
   nextPage?: string;
 }
