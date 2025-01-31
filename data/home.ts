@@ -24,18 +24,33 @@ const homeContent: HomeDataType[] = [
 
 const sideProjectContent: HomeDataType[] = [
   {
+    href: "/detail/aniwhere",
+    title: `ANIWHERE`,
+  },
+  {
     href: "/detail/code-clash",
     title: `CODE\nCLASH`,
-    subTitle: `온라인 알고리즘 게임 서비스`,
   },
   {
     href: "/detail/keyword-katch",
     title: `KEYWORD\nKATCH`,
-    subTitle: `키워드 기반 뉴스제공 서비스`,
+  },
+  {
+    href: "/detail/mkb-portfolio",
+    title: `MKB\nPORTFOLIO`,
+  },
+];
+
+export const workExperienceContent: HomeDataType[] = [
+  {
+    href: "/detail/tmax-cloud",
+    title: `TMAX\nCLOUD`,
+    subTitle: `온북 클라우드 플랫폼 개발`,
   },
 ];
 
 export const homePathData: Record<string, HomeDataType[]> = {
   "/": homeContent,
+  "work-experience": workExperienceContent,
   "side-project": sideProjectContent,
 };

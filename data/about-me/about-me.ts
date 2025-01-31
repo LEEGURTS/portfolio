@@ -21,6 +21,7 @@ import TmaxImage from "@/assets/img/about-me/logo/tmax-logo.png";
 import BoostcampImage from "@/assets/img/about-me/logo/Boostcamp.png";
 import ProfileImage from "@/assets/img/about-me/profile.webp";
 import CodeClashImage from "@/assets/img/codeclash/main.png";
+import GwangunImage from "@/assets/img/about-me/logo/kwangwoon-logo.png";
 
 export const AboutMeData = {
   name: "이근성",
@@ -99,6 +100,8 @@ export const AboutMeData = {
       title: "광운대학교",
       duration: "2018.02 ~ 2024.08",
       explain: "소프트웨어학부 졸업",
+      logo: GwangunImage,
+      score: "4.26/4.5",
     },
   ],
   sideProjects: [

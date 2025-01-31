@@ -61,7 +61,7 @@ const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
         {github && (
           <div>
             <p className="font-semibold">Github</p>
-            <Link href={github} className="text-sm" target="_blank">
+            <Link href={github} className="text-sm break-words" target="_blank">
               {github}
             </Link>
           </div>

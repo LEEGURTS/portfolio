@@ -1,6 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AboutMeData } from "@/data/about-me/about-me";
+import { motion } from "framer-motion";
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerChildren = {
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const AboutMePage = () => {
   return (
@@ -129,6 +144,27 @@ const AboutMePage = () => {
           ))}
         </div>
         <p className="font-bold text-xl">학력</p>
+        {AboutMeData.education.map((education, idx) => (
+          <div key={idx} className="flex flex-row justify-between">
+            <div className="flex flex-row items-center gap-4">
+              {education?.logo && (
+                <Image
+                  src={education.logo}
+                  alt=""
+                  className="object-contain size-24 border rounded-lg"
+                />
+              )}
+              <div>
+                <p className="font-bold text-lg">{education.title}</p>
+                <p className="text-sm text-gray-500">{education.duration}</p>
+                <p className="text-sm my-2">{education.explain}</p>
+                {education?.score && (
+                  <p className="text-sm">{education.score}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
         <p className="font-bold text-xl">활동</p>
         <div className="relative grid grid-cols-1 gap-4 lg:grid-cols-2">
           {AboutMeData.activities.map((activity, idx) => (
