@@ -1,17 +1,43 @@
 import ModalRouter from "@/component/common/modal/modal-router";
+import { DetailData } from "@/data/detail";
 import { mdReader } from "@/data/md-reader";
 import { mdxComponents } from "@/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface MarkdownModalPageProps {
-  params: {
+  params: Promise<{
     targetId: string;
     contentId: string;
-  };
+  }>;
 }
 
+export const generateStaticParams = async () => {
+  return Object.keys(DetailData).flatMap((title) => {
+    const targetId = DetailData[title].id;
+    return [
+      ...(DetailData[title].contributions?.flatMap((contribution) =>
+        contribution.content
+          .filter((item) => item.id)
+          .map((item) => ({
+            targetId,
+            contentId: item.id,
+          }))
+      ) ?? []),
+      ...(DetailData[title].solvedProblem?.flatMap((contribution) =>
+        contribution.content
+          .filter((item) => item.id)
+          .map((item) => ({
+            targetId,
+            contentId: item.id,
+          }))
+      ) ?? []),
+    ];
+  });
+};
+
 const MarkdownModalPage = async ({ params }: MarkdownModalPageProps) => {
-  const markdown = await mdReader(params.targetId, params.contentId);
+  const { targetId, contentId } = await params;
+  const markdown = await mdReader(targetId, contentId);
 
   return (
     <>

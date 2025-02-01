@@ -5,14 +5,23 @@ import DetailKeyword from "@/component/detail/detail-keyword";
 import DetailMainExplanation from "@/component/detail/detail-main-explanation";
 import { DetailData } from "@/data/detail";
 
-const DetailPage = async ({ params }: { params: { title: string } }) => {
-  const data = DetailData[params.title];
+export const generateStaticParams = async () => {
+  return Object.keys(DetailData).map((title) => ({ title }));
+};
+
+const DetailPage = async ({
+  params,
+}: {
+  params: Promise<{ title: string }>;
+}) => {
+  const { title } = await params;
+  const data = DetailData[title];
 
   if (!data) return <div>Not Found</div>;
 
   return (
     <>
-      <DetailHeader title={params.title} image={data.thumbnail} />
+      <DetailHeader title={title} image={data.thumbnail} />
       <div className="w-full max-w-[90rem] px-8">
         <DetailMainExplanation detail={data} />
         {data.skills && (

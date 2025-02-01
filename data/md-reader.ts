@@ -11,7 +11,7 @@ export const mdReader = async (target: string, mdName: string) => {
     process.cwd(),
     `data/markdown/${target}/${mdName}.md`
   );
-  console.log(filePath);
+
   if (!fs.existsSync(filePath)) {
     return "";
   }

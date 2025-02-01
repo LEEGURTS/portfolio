@@ -8,8 +8,13 @@ export const generateStaticParams = async () => {
   }));
 };
 
-export default function Home({ params }: { params: { title?: string[] } }) {
-  if (params.title && params.title.length > 1) redirect("/home");
-  const url = params.title ? params.title[0] : "/";
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ title?: string[] }>;
+}) {
+  const { title } = await params;
+  if (title && title.length > 1) redirect("/home");
+  const url = title ? title[0] : "/";
   return <HomeContentList contentList={homePathData[url]} />;
 }
