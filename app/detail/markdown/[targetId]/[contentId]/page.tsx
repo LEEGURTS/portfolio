@@ -1,4 +1,3 @@
-import ModalRouter from "@/component/common/modal/modal-router";
 import { mdReader } from "@/data/md-reader";
 import { mdxComponents } from "@/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
