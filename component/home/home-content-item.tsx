@@ -6,6 +6,7 @@ interface HomeContentItemProps {
   href: string;
   subTitle?: string;
   year?: number;
+  className?: string;
 }
 const textVariants: Variants = {
   hidden: {
@@ -28,6 +29,7 @@ const HomeContentItem = ({
   year,
   href,
   subTitle,
+  className,
 }: HomeContentItemProps) => {
   return (
     <motion.div
@@ -39,6 +41,7 @@ const HomeContentItem = ({
       whileHover={{
         rotateY: -40,
       }}
+      className={className}
     >
       <Link
         href={href}

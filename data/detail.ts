@@ -26,17 +26,18 @@ interface SkillsType {
   beSkills?: string[];
 }
 
-interface SolvedProblemType {
+interface ContributionDetailType {
   title: string;
-  content: string[];
+  id?: string;
 }
 
-interface ContributionType {
+export interface ContributionType {
   title: string;
-  content: string[];
+  content: ContributionDetailType[];
 }
 
 export interface DetailDataType {
+  id: string;
   thumbnail: StaticImageData;
   mainExplanations: ExplanationsType;
   subExplanations?: ExplanationsType;
@@ -44,7 +45,7 @@ export interface DetailDataType {
   sideInfo: SideInfoType;
   imageExplanations?: imageExplanationsType[];
   contributions?: ContributionType[];
-  solvedProblems?: SolvedProblemType[];
+  solvedProblem?: ContributionType[];
   moreDetail?: string[];
   nextPage?: string;
 }

@@ -1,13 +1,8 @@
 import { DetailDataType } from "../detail";
 import Thumbnail from "@/assets/img/codeclash/main.png";
-import LoginGif from "@/assets/img/codeclash/login.gif";
-import ChatGif from "@/assets/img/codeclash/chat.gif";
-import EnterRoomGif from "@/assets/img/codeclash/enter-room.gif";
-import GetItemGif from "@/assets/img/codeclash/get-item.gif";
-import GetResultGif from "@/assets/img/codeclash/get-result.gif";
-import IntroduceGif from "@/assets/img/codeclash/introduce.gif";
 
 export const codeClashData: DetailDataType = {
+  id: "code-clash",
   thumbnail: Thumbnail,
   mainExplanations: {
     simpleExplanation: "Code Clash는 웹 기반 알고리즘 게임 서비스 입니다.",
@@ -35,49 +30,37 @@ export const codeClashData: DetailDataType = {
       "JWT",
     ],
   },
-  imageExplanations: [
+  contributions: [
     {
-      image: LoginGif,
-      title: "로그인",
-      description: [
-        "처음 접속시에 만나 볼 수 있는 로그인 페이지 입니다. JWT를 통해 인증/인가를 처리하고 있습니다.",
-        "미니멀한 디자인, 게임 스타트 키를 통해 신나는 게임의 분위기를 느낄 수 있습니다.",
+      title: "프론트엔드 개발",
+      content: [
+        {
+          title: "React, TypeScript를 사용하여 UI 개발",
+          id: "react",
+        },
+        {
+          title: "Socket.io를 사용하여 실시간 통신 구현",
+        },
+        {
+          title: "JWT를 사용하여 인증 구현",
+        },
       ],
     },
     {
-      image: EnterRoomGif,
-      title: "로비 접속",
-      description: ["로비를 통해 여러 게임에 원하는대로 접속 할 수 있습니다."],
-    },
-    {
-      image: ChatGif,
-      title: "채팅",
-      description: [
-        "로비에서 여러 사람들과 소통을 나눌 수 있습니다.",
-        "게임 시작 전 가벼운 담소를 나눌 수 있습니다.",
-      ],
-    },
-    {
-      image: IntroduceGif,
-      title: "가이드",
-      description: [
-        "처음 게임을 접하는 사람도 쉽게 접하도록 가이드를 제공합니다.",
-      ],
-    },
-    {
-      image: GetItemGif,
-      title: "게임 아이템",
-      description: [
-        "여러 게임 아이템을 통해 알고리즘 문제 풀이에 재미를 느낄 수 있습니다.",
-        "화면 가리기, 줄 바꾸기, 언어 바꾸기 등 여러 아이템으로 상대와 대전할 수 있습니다.",
-      ],
-    },
-    {
-      image: GetResultGif,
-      title: "결과 확인",
-      description: [
-        "순위를 확인하고 다른 사람의 풀이를 확인 할 수 있습니다.",
-        "게임 결과를 확인하며 풀었던 문제에 대한 복습도 가능합니다.",
+      title: "백엔드 개발",
+      content: [
+        {
+          title: "Nest.js, Express를 사용하여 API 개발",
+        },
+        {
+          title: "Socket.io를 사용하여 실시간 통신 구현",
+        },
+        {
+          title: "Docker를 사용하여 배포 환경 구축",
+        },
+        {
+          title: "JWT를 사용하여 인증 구현",
+        },
       ],
     },
   ],

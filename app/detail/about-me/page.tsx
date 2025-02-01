@@ -1,21 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AboutMeData } from "@/data/about-me/about-me";
-import { motion } from "framer-motion";
-
-// Animation variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const staggerChildren = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 
 const AboutMePage = () => {
   return (

@@ -1,3 +1,4 @@
+import DetailContribution from "@/component/detail/detail-worked";
 import DetailHeader from "@/component/detail/detail-header";
 import DetailImageList from "@/component/detail/detail-image-list";
 import DetailKeyword from "@/component/detail/detail-keyword";
@@ -21,6 +22,11 @@ const DetailPage = async ({ params }: { params: { title: string } }) => {
           />
         )}
         <DetailImageList detail={data} />
+        <DetailContribution
+          title="Contribution"
+          contributions={data.contributions}
+          targetId={data.id}
+        />
       </div>
       <div className="h-48"></div>
     </>

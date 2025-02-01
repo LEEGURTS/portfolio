@@ -23,8 +23,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="text-[12px] sm:text-[14px] lg:text-[16px]">
@@ -35,7 +37,10 @@ export default function RootLayout({
           className={`border-2 w-full h-full overflow-y-scroll scrollbar-none font-pretendard`}
           id="scroll-body"
         >
-          <PageAnimatePresence>{children}</PageAnimatePresence>
+          <PageAnimatePresence>
+            {children}
+            {modal}
+          </PageAnimatePresence>
         </div>
         <HomeIntroduce />
         <NameLogo />
