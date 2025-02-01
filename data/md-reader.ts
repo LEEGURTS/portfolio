@@ -9,9 +9,9 @@ export const mdReader = async (target: string, mdName: string) => {
   }
   const filePath = path.join(
     process.cwd(),
-    `app/detail/markdown/${target}/${mdName}/page.md`
+    `data/markdown/${target}/${mdName}.md`
   );
-
+  console.log(filePath);
   if (!fs.existsSync(filePath)) {
     return "";
   }
