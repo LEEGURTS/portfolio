@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useMotionValueEvent, Variants } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion, Variants } from "motion/react";
 import HomeContentItem from "./home-content-item";
 import useContainerScroll from "@/hooks/scroll/use-scroll";
 
@@ -34,15 +34,13 @@ const HomeContentList = ({ contentList }: HomeContentListProps) => {
 
   const [transAngle, setTransAngle] = useState(25);
 
-  useMotionValueEvent(scrollY, "change", (current) => {
-    if (typeof current === "number") {
-      const percent =
-        current /
-        ((scrollRef.current?.scrollHeight ?? 0) -
-          (scrollRef.current?.clientHeight ?? 1));
-      setTransAngle(25 + percent * 50);
-    }
-  });
+  useEffect(() => {
+    const percent =
+      scrollY /
+      ((scrollRef.current?.scrollHeight ?? 0) -
+        (scrollRef.current?.clientHeight ?? 1));
+    setTransAngle(25 + percent * 50);
+  }, [scrollY, scrollRef]);
 
   return (
     <motion.div

@@ -1,5 +1,4 @@
-"use client";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import { ContributionType } from "@/data/detail";
 import { containerVariants } from "@/constants/motion-variants";
 import DetailWorkedItem from "./detail-worked-item";
@@ -24,7 +23,7 @@ const DetailContribution = ({
       viewport={{ once: true, amount: 0.2 }}
     >
       <h2 className="text-3xl font-bold">{title}</h2>
-      <div className="flex flex-col gap-2 mb-8 lg:mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8 lg:mb-16">
         {contributions?.map((contribution, idx) => (
           <DetailWorkedItem
             key={idx}

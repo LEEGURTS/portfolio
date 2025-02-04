@@ -16,21 +16,23 @@ const DetailPage = async ({
 }) => {
   const { title } = await params;
   const data = DetailData[title];
-
   if (!data) return <div>Not Found</div>;
 
   return (
     <>
       <DetailHeader title={title} image={data.thumbnail} />
       <div className="w-full max-w-[90rem] px-8">
-        <DetailMainExplanation detail={data} />
+        <DetailMainExplanation
+          mainExplanations={data.mainExplanations}
+          sideInfo={data.sideInfo}
+        />
         {data.skills && (
           <DetailKeyword
             feSkills={data.skills.feSkills}
             beSkills={data.skills.beSkills}
           />
         )}
-        <DetailImageList detail={data} />
+        <DetailImageList imageExplanations={data.imageExplanations} />
         <DetailContribution
           title="Contribution"
           contributions={data.contributions}

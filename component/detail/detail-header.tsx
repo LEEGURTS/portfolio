@@ -1,7 +1,5 @@
-"use client";
-
 import Image, { StaticImageData } from "next/image";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 interface DetailHeaderProps {
   title: string;
   image: StaticImageData;
@@ -17,7 +15,7 @@ const DetailHeader = ({ title, image }: DetailHeaderProps) => {
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
       >
-        <div className="w-fit font-drukwide whitespace-pre-wrap">
+        <div className="w-fit font-drukwide whitespace-pre-wrap break-all">
           {title.toUpperCase().split("-").join("\n")}
         </div>
       </motion.div>

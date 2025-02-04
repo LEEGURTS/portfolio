@@ -1,18 +1,20 @@
 import { StaticImageData } from "next/image";
 import { codeClashData } from "./detail-items/code-clash";
+import { IconType } from "react-icons";
+import { aniwhereData } from "./detail-items/aniwhere";
 
-interface imageExplanationsType {
+export interface imageExplanationsType {
   image: StaticImageData;
   title: string;
   description: string[];
 }
 
-interface ExplanationsType {
+export interface ExplanationsType {
   simpleExplanation: string;
   detailExplanation: string[];
 }
 
-interface SideInfoType {
+export interface SideInfoType {
   url?: string;
   github?: string;
   notion?: string;
@@ -22,18 +24,16 @@ interface SideInfoType {
 }
 
 interface SkillsType {
-  feSkills?: string[];
-  beSkills?: string[];
-}
-
-interface ContributionDetailType {
-  title: string;
-  id?: string;
+  feSkills?: IconType[];
+  beSkills?: IconType[];
 }
 
 export interface ContributionType {
   title: string;
-  content: ContributionDetailType[];
+  subtitle?: string;
+  Icon?: IconType;
+  content?: string[];
+  id?: string;
 }
 
 export interface DetailDataType {
@@ -52,4 +52,5 @@ export interface DetailDataType {
 
 export const DetailData: Record<string, DetailDataType> = {
   "code-clash": codeClashData,
+  aniwhere: aniwhereData,
 };

@@ -1,16 +1,17 @@
-"use client";
-
 import { containerVariants, itemVariants } from "@/constants/motion-variants";
-import { DetailDataType } from "@/data/detail";
-import { motion } from "motion/react";
+import { ExplanationsType, SideInfoType } from "@/data/detail";
+import * as motion from "motion/react-client";
 import Link from "next/link";
 
 interface DetailMainExplanationProps {
-  detail: DetailDataType;
+  mainExplanations: ExplanationsType;
+  sideInfo: SideInfoType;
 }
 
-const DetailMainExplanation = ({ detail }: DetailMainExplanationProps) => {
-  const { mainExplanations, sideInfo } = detail;
+const DetailMainExplanation = ({
+  mainExplanations,
+  sideInfo,
+}: DetailMainExplanationProps) => {
   const { url, duration, fe_dev, be_dev, github, notion } = sideInfo;
 
   return (

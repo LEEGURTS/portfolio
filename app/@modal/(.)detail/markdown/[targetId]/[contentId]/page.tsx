@@ -14,23 +14,16 @@ interface MarkdownModalPageProps {
 export const generateStaticParams = async () => {
   return Object.keys(DetailData).flatMap((title) => {
     const targetId = DetailData[title].id;
+
     return [
-      ...(DetailData[title].contributions?.flatMap((contribution) =>
-        contribution.content
-          .filter((item) => item.id)
-          .map((item) => ({
-            targetId,
-            contentId: item.id,
-          }))
-      ) ?? []),
-      ...(DetailData[title].solvedProblem?.flatMap((contribution) =>
-        contribution.content
-          .filter((item) => item.id)
-          .map((item) => ({
-            targetId,
-            contentId: item.id,
-          }))
-      ) ?? []),
+      ...(DetailData[title].contributions?.map((contribution) => ({
+        targetId,
+        contentId: contribution.id,
+      })) ?? []),
+      ...(DetailData[title].solvedProblem?.map((contribution) => ({
+        targetId,
+        contentId: contribution.id,
+      })) ?? []),
     ];
   });
 };
@@ -38,6 +31,8 @@ export const generateStaticParams = async () => {
 const MarkdownModalPage = async ({ params }: MarkdownModalPageProps) => {
   const { targetId, contentId } = await params;
   const markdown = await mdReader(targetId, contentId);
+
+  if (!markdown) return <div>Not Found</div>;
 
   return (
     <>

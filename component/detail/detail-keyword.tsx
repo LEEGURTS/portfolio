@@ -1,40 +1,74 @@
+import { IconType } from "react-icons";
+import * as motion from "motion/react-client";
+import { containerVariants, itemVariants } from "@/constants/motion-variants";
+
 interface DetailKeywordProps {
-  feSkills?: string[];
-  beSkills?: string[];
+  feSkills?: IconType[];
+  beSkills?: IconType[];
 }
 
 const DetailKeyword = ({ feSkills, beSkills }: DetailKeywordProps) => {
   return (
     <div className="flex flex-col gap-4 mt-4">
       {feSkills && (
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold">Frontend Skills</h2>
+        <motion.div
+          className="flex flex-col gap-2"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.h2
+            className="text-xl font-bold"
+            variants={{
+              hidden: { opacity: 0, x: "-3rem" },
+              show: { opacity: 1, x: 0 },
+            }}
+          >
+            Frontend Skills
+          </motion.h2>
           <div className="flex flex-wrap gap-2">
-            {feSkills?.map((skill, idx) => (
-              <span
+            {feSkills?.map((Skill, idx) => (
+              <motion.span
                 key={idx}
-                className="px-2 py-1 text-sm bg-gray-300 rounded-md"
+                className="bg-gray-200 rounded-md p-2"
+                variants={itemVariants}
               >
-                {skill}
-              </span>
+                <Skill size={"2.5rem"} />
+              </motion.span>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
       {beSkills && (
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold">Backend Skills</h2>
+        <motion.div
+          className="flex flex-col gap-2"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.h2
+            className="text-xl font-bold"
+            variants={{
+              hidden: { opacity: 0, x: "-3rem" },
+              show: { opacity: 1, x: 0 },
+            }}
+          >
+            Backend Skills
+          </motion.h2>
           <div className="flex flex-wrap gap-2">
-            {beSkills?.map((skill, idx) => (
-              <span
+            {beSkills?.map((Skill, idx) => (
+              <motion.span
                 key={idx}
-                className="px-2 py-1 text-sm bg-gray-300 rounded-md"
+                className="bg-gray-200 rounded-md p-2"
+                variants={itemVariants}
               >
-                {skill}
-              </span>
+                <Skill size={"2.5rem"} />
+              </motion.span>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );

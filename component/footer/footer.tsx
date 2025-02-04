@@ -4,7 +4,7 @@ import GithubSVG from "@/assets/svg/github-svg";
 import InstagramSVG from "@/assets/svg/instagram-svg";
 import MailSVG from "@/assets/svg/mail-svg";
 
-import { AnimatePresence, useMotionValueEvent } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import FadeInOut from "../effect/fade-in-out";
@@ -13,16 +13,12 @@ const Footer = () => {
   const url = usePathname();
   const isRoot = useMemo(() => (url.startsWith("/home") ? true : false), [url]);
   const [isTextTransparent, setIsTransparent] = useState(false);
-
   const { scrollYProgress } = useContainerScroll();
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (!isRoot && current && current !== 1) setIsTransparent(true);
-    else setIsTransparent(false);
-  });
-
   useEffect(() => {
-    if (!isRoot) scrollYProgress.set(0);
+    if (!isRoot && scrollYProgress && scrollYProgress !== 1)
+      setIsTransparent(true);
+    else setIsTransparent(false);
   }, [isRoot, scrollYProgress]);
 
   return (

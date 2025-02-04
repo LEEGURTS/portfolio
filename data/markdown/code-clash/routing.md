@@ -45,13 +45,13 @@ Animation을 위한 AnimatePresence가 있고 Routes로 Navigate를 제공한다
 <Route path="*" element={<Navigate to="/lobby" />} />
 ```
 
-누군가 예상치 못하게 [[codeclash.site/비밀스런공간](http://codeclash.site/%EB%B9%84%EB%B0%80%EC%8A%A4%EB%9F%B0%EA%B3%B5%EA%B0%84)](http://codeclash.site/비밀스런공간) 이런식으로 작성하고 들어오려 한다면 어떨까?
+누군가 예상치 못하게 [codeclash.site/비밀스런공간](http://codeclash.site/%EB%B9%84%EB%B0%80%EC%8A%A4%EB%9F%B0%EA%B3%B5%EA%B0%84) 이런식으로 작성하고 들어오려 한다면 어떨까?
 
 보통은 404 혹은 React Router같은 경우에는 해당하는 페이지가 없으므로 아무것도 띄우지 않는다. 이를 방지하고자 정해지지 않은 url로 접속시에는 로비로 보낸다.
 
 # 새로고침? 정말 할 것인가?
 
-```jsx
+```typescript
 useEffect(() => {
   const preventClose = (e: BeforeUnloadEvent) => {
     e.preventDefault();
@@ -69,7 +69,7 @@ useEffect(() => {
 
 # 어? 정보가 없는데 페이지를 접근하려한다?
 
-```tsx
+```typescript
 useEffect(() => {
   if (!roomId && currentLocation.pathname !== "/lobby") {
     navigate("/lobby");
@@ -81,7 +81,7 @@ roomId가 없는데 접속하려는 페이지가 roomId를 필요로 한다면? 
 
 # 게임이 정상적으로 진행되면 뒤로가기를 누를 일이 없다.
 
-```jsx
+```typescript
 const history = createBrowserHistory();
 
 export const useBlock = () => {
@@ -104,7 +104,7 @@ history가 변경될 때 변경 action이 뒤로가기 인가 체크하고 뒤�
 
 # 로그인도 안했는데 로비에 들어오려 한다
 
-```tsx
+```typescript
 return isLogin === isNeedLogin ? (
   <Outlet />
 ) : (

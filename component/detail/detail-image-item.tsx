@@ -1,7 +1,5 @@
-"use client";
-
 import Image, { StaticImageData } from "next/image";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 interface DetailImageItemProps {
   image: StaticImageData;
   title: string;

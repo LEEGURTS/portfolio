@@ -43,7 +43,7 @@ const AboutMePage = () => {
             <h2 className="text-lg font-medium">
               {AboutMeData.introduce.subTitle}
             </h2>
-            <div className="whitespace-pre-wrap my-8">
+            <div className="whitespace-pre-wrap my-8 sm:max-w-96">
               {AboutMeData.introduce.content.map((sentence, idx) => (
                 <p key={idx}>· {sentence}</p>
               ))}

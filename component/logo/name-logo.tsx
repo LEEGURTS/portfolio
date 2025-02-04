@@ -1,7 +1,6 @@
 "use client";
 
 import useContainerScroll from "@/hooks/scroll/use-scroll";
-import { useMotionValueEvent } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -13,16 +12,13 @@ const NameLogo = () => {
   const [isScrollBottom, setIsScrollBottom] = useState(false);
   const { scrollYProgress } = useContainerScroll();
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (!isRoot && current && current !== 1) setIsTransparent(true);
+  useEffect(() => {
+    if (!isRoot && scrollYProgress && scrollYProgress !== 1)
+      setIsTransparent(true);
     else setIsTransparent(false);
 
-    if (current == 1) setIsScrollBottom(true);
+    if (scrollYProgress == 1) setIsScrollBottom(true);
     else setIsScrollBottom(false);
-  });
-
-  useEffect(() => {
-    if (!isRoot) scrollYProgress.set(0);
   }, [isRoot, scrollYProgress]);
 
   return (

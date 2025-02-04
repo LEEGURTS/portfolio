@@ -1,5 +1,18 @@
 import { DetailDataType } from "../detail";
 import Thumbnail from "@/assets/img/codeclash/main.png";
+import { FaGamepad, FaLock } from "react-icons/fa";
+import { FiUsers } from "react-icons/fi";
+import { GrOptimize } from "react-icons/gr";
+import { LuRouter } from "react-icons/lu";
+import {
+  SiDocker,
+  SiExpress,
+  SiJsonwebtokens,
+  SiNestjs,
+  SiReact,
+  SiSocketdotio,
+  SiTypescript,
+} from "react-icons/si";
 
 export const codeClashData: DetailDataType = {
   id: "code-clash",
@@ -20,47 +33,66 @@ export const codeClashData: DetailDataType = {
     be_dev: ["이동하", "현찬우"],
   },
   skills: {
-    feSkills: ["React", "TypeScript", "Socket.io", "JWT"],
+    feSkills: [SiReact, SiTypescript, SiSocketdotio, SiJsonwebtokens],
     beSkills: [
-      "Nest.js",
-      "Express",
-      "TypeScript",
-      "Socket.io",
-      "Docker",
-      "JWT",
+      SiNestjs,
+      SiExpress,
+      SiTypescript,
+      SiSocketdotio,
+      SiDocker,
+      SiJsonwebtokens,
     ],
   },
   contributions: [
     {
-      title: "프론트엔드 개발",
+      title: "인증 시스템 구현",
+      subtitle: "JWT 기반의 인증 시스템 개발",
+      Icon: FaLock,
+      id: "auth",
       content: [
-        {
-          title: "React, TypeScript를 사용하여 UI 개발",
-          id: "react",
-        },
-        {
-          title: "Socket.io를 사용하여 실시간 통신 구현",
-        },
-        {
-          title: "JWT를 사용하여 인증 구현",
-        },
+        "Axios Interceptor를 사용하여 JWT 토큰 관리",
+        "자동 토큰 갱신 및 에러 처리 구현",
       ],
     },
     {
-      title: "백엔드 개발",
+      title: "게임 플레이 기능",
+      subtitle: "실시간 게임 플레이 기능 및 코드 에디터 커스텀",
+      Icon: FaGamepad,
+      id: "game",
+      content: ["실시간 아이템 사용 기능 개발", "모나코 기반 코드 에디터 추가"],
+    },
+    {
+      title: "사용자 경험 개선",
+      subtitle: "직관적인 온보딩 프로세스 구현",
+      Icon: FiUsers,
+      content: ["온보딩 컴포넌트 구현", "초기 사용자 경험 최적화"],
+    },
+    {
+      title: "소켓 통신 최적화",
+      subtitle: "실시간 통신 구조 개선 및 버그 수정",
+      Icon: SiSocketdotio,
+      id: "socket",
       content: [
-        {
-          title: "Nest.js, Express를 사용하여 API 개발",
-        },
-        {
-          title: "Socket.io를 사용하여 실시간 통신 구현",
-        },
-        {
-          title: "Docker를 사용하여 배포 환경 구축",
-        },
-        {
-          title: "JWT를 사용하여 인증 구현",
-        },
+        "미니세미나, 페어 프로그래밍을 통한 소켓 이벤트 리팩토링",
+        "방 입장 관련 버그 수정",
+        "게임 시작 관련 버그 수정",
+      ],
+    },
+    {
+      title: "성능 최적화",
+      subtitle: "이미지 최적화를 통한 성능 개선",
+      Icon: GrOptimize,
+      id: "image",
+      content: ["Webp를 통한 이미지 최적화", "Dynamic Import를 통한 구조 개선"],
+    },
+    {
+      title: "라우팅 보안",
+      subtitle: "안전한 라우팅 시스템 구현",
+      Icon: LuRouter,
+      id: "routing",
+      content: [
+        "잘못된 라우팅 방지 컴포넌트 추가",
+        "인증 기반 라우트 보호 구현",
       ],
     },
   ],
