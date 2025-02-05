@@ -25,6 +25,7 @@ const useContainerScroll = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    scrollRef.current = document.body.querySelector("#scroll-body");
     const updateScroll = (y: number, progress: number) => {
       setScrollY(y);
       setScrollYProgress(progress);
