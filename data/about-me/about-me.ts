@@ -129,6 +129,12 @@ export const AboutMeData = {
       logo: CodeClashImage,
     },
     {
+      title: "KorSearch",
+      duration: "2023.07 ~ 2023.09",
+      href: "/detail/korsearch",
+      details: ["영문/한글 타이핑간 치환 기능 구현", "초성 검색 기능 구현"],
+    },
+    {
       title: "Keyword Katch",
       duration: "2023.03 ~ 2023.06",
       href: "/detail/keyword-katch",

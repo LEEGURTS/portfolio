@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 import { codeClashData } from "./detail-items/code-clash";
 import { IconType } from "react-icons";
 import { aniwhereData } from "./detail-items/aniwhere";
+import { mkbportpolioData } from "./detail-items/mkb-portfolio";
 
 export interface imageExplanationsType {
   image: StaticImageData;
@@ -53,4 +54,5 @@ export interface DetailDataType {
 export const DetailData: Record<string, DetailDataType> = {
   "code-clash": codeClashData,
   aniwhere: aniwhereData,
+  "mkb-portfolio": mkbportpolioData,
 };
