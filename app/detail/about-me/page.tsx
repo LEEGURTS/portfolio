@@ -153,9 +153,8 @@ const AboutMePage = () => {
         <p className="font-bold text-xl">활동</p>
         <div className="relative grid grid-cols-1 gap-4 lg:grid-cols-2">
           {AboutMeData.activities.map((activity, idx) => (
-            <Link
+            <div
               key={idx}
-              href={activity.href}
               className="w-full border rounded-lg p-4 flex flex-row items-center justify-between"
             >
               <div>
@@ -177,7 +176,7 @@ const AboutMePage = () => {
                   className="object-contain size-16"
                 />
               )}
-            </Link>
+            </div>
           ))}
         </div>
         <p className="font-bold text-xl">프로젝트</p>

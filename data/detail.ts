@@ -3,6 +3,7 @@ import { codeClashData } from "./detail-items/code-clash";
 import { IconType } from "react-icons";
 import { aniwhereData } from "./detail-items/aniwhere";
 import { mkbportpolioData } from "./detail-items/mkb-portfolio";
+import { tmaxCloudData } from "./detail-items/tmax-cloud";
 
 export interface imageExplanationsType {
   image: StaticImageData;
@@ -55,4 +56,5 @@ export const DetailData: Record<string, DetailDataType> = {
   "code-clash": codeClashData,
   aniwhere: aniwhereData,
   "mkb-portfolio": mkbportpolioData,
+  "tmax-cloud": tmaxCloudData,
 };

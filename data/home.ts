@@ -29,8 +29,8 @@ const sideProjectContent: HomeDataType[] = [
     title: `CODE\nCLASH`,
   },
   {
-    href: "/detail/keyword-katch",
-    title: `KEYWORD\nKATCH`,
+    href: "/detail/korsearch",
+    title: `KORSEARCH`,
   },
   {
     href: "/detail/mkb-portfolio",
