@@ -5,6 +5,7 @@ import NameLogo from "@/component/logo/name-logo";
 import Footer from "@/component/footer/footer";
 import PageAnimatePresence from "@/component/effect/page-animate-presense";
 import HomeIntroduce from "@/component/home/home-introduce";
+import { Analytics } from "@vercel/analytics/react";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${pretendard.className} ${drukwide.variable} scroll-smooth p-4 w-full h-dvh scrollbar-none `}
       >
+        <Analytics />
         <div
           className={`border-2 w-full h-full overflow-y-scroll scrollbar-none font-pretendard`}
           id="scroll-body"
