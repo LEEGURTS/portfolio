@@ -4,6 +4,7 @@ import { IconType } from "react-icons";
 import { aniwhereData } from "./detail-items/aniwhere";
 import { mkbportpolioData } from "./detail-items/mkb-portfolio";
 import { tmaxCloudData } from "./detail-items/tmax-cloud";
+import { korsearchData } from "./detail-items/korsearch";
 
 export interface imageExplanationsType {
   image: StaticImageData;
@@ -40,7 +41,7 @@ export interface ContributionType {
 
 export interface DetailDataType {
   id: string;
-  thumbnail: StaticImageData;
+  thumbnail?: StaticImageData;
   mainExplanations: ExplanationsType;
   subExplanations?: ExplanationsType;
   skills?: SkillsType;
@@ -48,13 +49,14 @@ export interface DetailDataType {
   imageExplanations?: imageExplanationsType[];
   contributions?: ContributionType[];
   solvedProblem?: ContributionType[];
-  moreDetail?: string[];
+  moreDetail?: (() => JSX.Element)[];
   nextPage?: string;
 }
 
 export const DetailData: Record<string, DetailDataType> = {
   "code-clash": codeClashData,
   aniwhere: aniwhereData,
+  korsearch: korsearchData,
   "mkb-portfolio": mkbportpolioData,
   "tmax-cloud": tmaxCloudData,
 };

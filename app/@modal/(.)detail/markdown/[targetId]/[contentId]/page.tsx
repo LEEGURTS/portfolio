@@ -37,7 +37,7 @@ const MarkdownModalPage = async ({ params }: MarkdownModalPageProps) => {
   return (
     <>
       <ModalRouter>
-        <div className="prose">
+        <div className="prose max-w-full lg:max-w-[60rem] ">
           <MDXRemote source={markdown} components={mdxComponents} />
         </div>
       </ModalRouter>

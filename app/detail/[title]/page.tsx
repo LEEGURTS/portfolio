@@ -33,6 +33,17 @@ const DetailPage = async ({
           />
         )}
         <DetailImageList imageExplanations={data.imageExplanations} />
+        {data.moreDetail && (
+          <div className="my-4">
+            <div className="flex flex-col gap-4">
+              {data.moreDetail.map((Detail, idx) => (
+                <div key={idx}>
+                  <Detail />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <DetailContribution
           title="Contribution"
           contributions={data.contributions}

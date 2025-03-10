@@ -13,6 +13,7 @@ import { GrOptimize } from "react-icons/gr";
 import Thumbnail from "@/assets/img/aniwhere/main.webp";
 import { MdWebAsset } from "react-icons/md";
 import { FiUsers } from "react-icons/fi";
+import { SlLogin } from "react-icons/sl";
 
 export const aniwhereData: DetailDataType = {
   id: "aniwhere",
@@ -48,6 +49,16 @@ export const aniwhereData: DetailDataType = {
         "이미지 최적화 서버를 통한 이미지 용량 90% 감소",
         "서브셋 폰트를 통한 폰트 용량 90% 감소",
         "SSR 페이지를 SSG로 변경하여 과부하시 로딩속도 70% 감소",
+      ],
+    },
+    {
+      title: "로그인 기능 개발",
+      subtitle: "next.js 환경에 맞춰 로그인 기능 개발",
+      Icon: SlLogin,
+      id: "login",
+      content: [
+        "Spring 과 Next.js 간 쿠키 공유 구현",
+        "Next.js 소스코드 수정을 통해 인증 리다이렉션 구현",
       ],
     },
     {

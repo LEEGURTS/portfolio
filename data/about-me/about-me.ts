@@ -134,6 +134,8 @@ export const AboutMeData = {
       href: "/detail/korsearch",
       details: ["영문/한글 타이핑간 치환 기능 구현", "초성 검색 기능 구현"],
     },
+    /*
+
     {
       title: "Keyword Katch",
       duration: "2023.03 ~ 2023.06",
@@ -144,6 +146,7 @@ export const AboutMeData = {
       ],
       logo: "",
     },
+    */
     {
       title: "MKB 포트폴리오",
       duration: "2022.12 ~ 2023.02",
