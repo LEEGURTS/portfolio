@@ -180,15 +180,14 @@ const AboutMePage = () => {
           ))}
         </div>
         <p className="font-bold text-xl">프로젝트</p>
-        <div className="relative grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="relative grid grid-cols-1 gap-4 lg:grid-cols-2 ">
           {AboutMeData.sideProjects.map((project, idx) => (
-            <Link
+            <div
               key={idx}
-              href={project.href}
-              className="w-full border rounded-lg p-4 flex flex-row items-center justify-between"
+              className="w-full border rounded-lg p-4 flex flex-row items-start justify-between "
             >
               <div>
-                <p className="font-bold text-lg">{project.title}</p>
+                <p className="font-bold text-lg ">{project.title}</p>
                 <p className="text-sm text-gray-500">{project.duration}</p>
                 {project?.details.map((detail, idx) => (
                   <p
@@ -199,14 +198,24 @@ const AboutMePage = () => {
                   </p>
                 ))}
               </div>
-              {project?.logo && (
-                <Image
-                  src={project.logo}
-                  alt=""
-                  className="object-contain size-16"
-                />
-              )}
-            </Link>
+              <div className="flex flex-col items-center">
+                <Link
+                  href={project.href}
+                  className="bg-gray-200 rounded-lg px-2 py-1 text-sm font-semibold whitespace-nowrap "
+                >
+                  자세히 보기
+                </Link>
+                {project?.logo ? (
+                  <Image
+                    src={project.logo}
+                    alt=""
+                    className="object-contain size-20"
+                  />
+                ) : (
+                  <div className="flex-grow"></div>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>
