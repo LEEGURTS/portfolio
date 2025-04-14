@@ -31,6 +31,7 @@ export const codeClashData: DetailDataType = {
     duration: "2024.11 - 2024.12",
     fe_dev: ["이근성", "지현배"],
     be_dev: ["이동하", "현찬우"],
+    url: "https://codeclash.duckdns.org",
   },
   skills: {
     feSkills: [SiReact, SiTypescript, SiSocketdotio, SiJsonwebtokens],

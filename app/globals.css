@@ -7,13 +7,6 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -33,25 +26,34 @@ body {
     -webkit-text-stroke: 1px black;
   }
 
+  .text-stroke-thin-white {
+    -webkit-text-stroke: 1px white;
+  }
+
   .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    display: block;
     width: 10px;
     padding: 10px;
   }
 
-  .scrollbar-none::-webkit-scrollbar-track {
+  .scrollbar::-webkit-scrollbar-track {
     background-color: #cccccc;
   }
-  .scrollbar-none::-webkit-scrollbar-thumb {
+  .scrollbar::-webkit-scrollbar-thumb {
     background-color: #999999;
     padding: 10px;
   }
 
-  .scrollbar-none::-webkit-scrollbar-thumb:hover {
+  .scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: #888888;
   }
 
-  .scrollbar-none::-webkit-scrollbar-track,
-  .scrollbar-none::-webkit-scrollbar-thumb {
+  .scrollbar::-webkit-scrollbar-track,
+  .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 5px;
   }
 }

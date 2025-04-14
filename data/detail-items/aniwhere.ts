@@ -33,6 +33,7 @@ export const aniwhereData: DetailDataType = {
     duration: "2024.10 ~",
     fe_dev: ["이근성", "박종권", "홍유진"],
     be_dev: ["김운채", "권우현", "장우진"],
+    url: "https://aniwhere.duckdns.org",
   },
   skills: {
     feSkills: [SiNextdotjs, SiTypescript, SiReactquery, SiTailwindcss],
