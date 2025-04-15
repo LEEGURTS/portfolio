@@ -26,6 +26,7 @@ export const mkbportpolioData: DetailDataType = {
     duration: "2022.12 ~ 2023.01",
     fe_dev: ["이근성"],
     be_dev: ["이근성"],
+    url: "https://mkbdancemusic.netlify.app",
   },
   skills: {
     feSkills: [SiReact, SiTypescript, SiTailwindcss],
