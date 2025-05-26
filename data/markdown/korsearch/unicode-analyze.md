@@ -23,8 +23,39 @@
 힣 44032 + 28 * 21 * 18 + 28 * 20 + 27  
 
 ## 한글을 영어 타이핑으로 분해
-![스크린샷 2025-05-26 112541](https://github.com/user-attachments/assets/fdbd31c7-765e-4d85-b908-f1831d0f0929)
+1. 문장을 한 글자씩 순회한다.
+2. 한 글자씩 초성, 중성, 종성을 기준으로 토큰을 분리한다.
+3. 분리한 토큰의 인덱스를 찾는다.
+``` ts
+const cho = Math.floor((code - 44032) / 588);
+const jung = Math.floor(((code - 44032) / 28) % 21);
+const jong = ((code - 44032) % 28) - 1;
+```
+4. 인덱스를 기반으로 영문으로 재조립한다.
+``` ts
+const CHO_DATA = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ";
+const JUNG_DATA = "ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ";
+const JONG_DATA = "ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ";
 
+const korDict: Record<string, string> = {
+  ㄱ: "r",
+  ㄲ: "R",
+  ㄴ: "s",
+  ㄷ: "e",
+  ㄸ: "E",
+  ㄹ: "f",
+  ㅁ: "a",
+  ㅂ: "q",
+  ㅃ: "Q",
+  ...
+};
+
+
+result = korDict[CHO_DATA[cho]] +
+          korDict[JUNG_DATA[jung]] +
+          //종성이 존재하면 korDict을 통해 출력, 없으면 빈 문자열 출력
+          (jong >= 0 ? korDict[JONG_DATA[jong]] : "")
+```
 ## 영어를 한글 타이핑으로 조합
 
 1. 영단어를 한 단어씩 For문으로 조회
