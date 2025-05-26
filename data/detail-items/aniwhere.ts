@@ -10,10 +10,11 @@ import {
 import { DetailDataType } from "../detail";
 import { FaAws } from "react-icons/fa";
 import { GrOptimize } from "react-icons/gr";
-import Thumbnail from "@/assets/img/aniwhere/main.webp";
 import { MdWebAsset } from "react-icons/md";
 import { FiUsers } from "react-icons/fi";
 import { SlLogin } from "react-icons/sl";
+import Thumbnail from "@/assets/img/aniwhere/main.webp";
+import ArchitectureImage from "@/assets/img/aniwhere/architecture.png"
 
 export const aniwhereData: DetailDataType = {
   id: "aniwhere",
@@ -39,6 +40,11 @@ export const aniwhereData: DetailDataType = {
     feSkills: [SiNextdotjs, SiTypescript, SiReactquery, SiTailwindcss],
     beSkills: [SiSpringboot, SiMysql, FaAws, SiDocker],
   },
+  imageExplanations: [{
+    image: ArchitectureImage,
+    title: "Architecture",
+    description: ["Codeclash의 아키텍쳐 입니다."]
+  }],
   contributions: [
     {
       title: "성능 최적화",

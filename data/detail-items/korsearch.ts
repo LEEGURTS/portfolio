@@ -29,6 +29,7 @@ export const korsearchData: DetailDataType = {
         "한글 입력값을 영어로 분해하는 함수 구현",
         "영어 입력값을 한글로 합체하는 함수 구현",
       ],
+      id: "unicode-analyze"
     },
   ],
 
