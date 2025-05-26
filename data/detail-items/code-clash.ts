@@ -1,5 +1,4 @@
 import { DetailDataType } from "../detail";
-import Thumbnail from "@/assets/img/codeclash/main.png";
 import { FaGamepad, FaLock } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { GrOptimize } from "react-icons/gr";
@@ -13,6 +12,8 @@ import {
   SiSocketdotio,
   SiTypescript,
 } from "react-icons/si";
+import Thumbnail from "@/assets/img/codeclash/main.png";
+import ArchitectureImage from "@/assets/img/codeclash/architecture.png";
 
 export const codeClashData: DetailDataType = {
   id: "code-clash",
@@ -44,6 +45,11 @@ export const codeClashData: DetailDataType = {
       SiJsonwebtokens,
     ],
   },
+  imageExplanations: [{
+    image: ArchitectureImage,
+    title: "Architecture",
+    description: ["Codeclash의 아키텍쳐 입니다."]
+  }],
   contributions: [
     {
       title: "인증 시스템 구현",
