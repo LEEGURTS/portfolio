@@ -245,6 +245,71 @@ SSG의 경우
 
 속도가 어마어마하게 느려졌습니다. 모든 페이지가 SSR인 경우입니다 전반적으로 4배 정도 느려지는 경향이 있습니다.
 
+# 필요한 페이지만 SSR 이여도 충분하다.
+처음 Next.js를 사용할 때, SSR이 좋다는 말을 추상적으로 듣고 대부분의 페이지를 SSR로 처리하려 했습니다.  
+그러나 이런 구조는 서버의 부담을 너무 가중 시키는 문제가 발생합니다.
+그래서 SSR은 정말 필요한 부분에서만 사용 할 수 있도록 하고 최대한 SSG 나 ISR, 혹은 CSR로 변경하고자 합니다.
+
+## nextjs server api를 사용하면 ssr로 동작한다.
+``` ts
+import { headers } from 'next/headers';
+
+export const isMobile = async () => {
+  const userAgent = (await headers()).get('user-agent') || '';
+  return /android.+mobile|ip(hone|[oa]d)/i.test(userAgent);
+};
+```
+해당 유틸함수를 통해 접속한 기기가 모바일인지 PC인지 확인하고 적응형 페이지를 구현하려 했습니다.  
+그러나 해당 함수에 next server api 중 하나인, headers를 사용해서 해당 함수를 사용한 함수가 모두 SSR 페이지로 변경되는 문제가 발생합니다.
+
+이런 문제를 해결하기 위해 두가지 방법을 사용합니다.
+```ts
+import { useEffect, useState } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (/android.+mobile|ip(hone|[oa]d)/i.test(navigator.userAgent))
+      setIsMobile(true);
+  }, []);
+
+  return isMobile;
+};
+
+export default useIsMobile;
+```
+
+첫번째로 모바일 분류가 필수인 경우, 클라이언트에게 역할을 위임해 서버의 분담을 줄이도록 합니다.
+
+```tsx
+<div className='block md:hidden'>
+  <MobileNav />
+</div>
+<div className='hidden md:block w-full'>
+  <DesktopNav />
+</div>
+```
+
+두번째로 브라우저 크기에 따라 렌더링이 다르게 되도록 구성하는 방법이 있습니다. 해당 방식은 hydration에 의한 화면 깜빡임 또한 없이 유저에게 원하는 페이지를 제공할 수 있는 장점이 있습니다.
+
+## 꼭 페이지가 요청마다 생성되어야 할까?
+예를 들어 보면 요일별 애니메이션 페이지는 요청이 올 때마다 매번 페이지를 생성 할 필요가 없습니다.  
+하루에 한번 갱신하고 나면, 관리자가 직접 데이터를 수정하지 않는 이상 변경될 일이 매우 드뭅니다.
+
+이러한 점을 이용해 ISR 페이지로 변환합니다.
+``` ts
+export const getAnimeWeeklyList =
+  async (): Promise<AnimeWeeklyResponse | null> => {
+    const response = await Fetch(`${prefix}/weekday`, {
+      next: { revalidate: 1200 },
+    });
+
+    if (response.ok) return response.json();
+    return null;
+  };
+```
+애니 정보를 요청마다 매번 다시 가져오는 것이 아닌, next cache를 이용해 20분마다 갱신하도록 구성해 서버의 부담을 줄입니다.  
+
 # SSG가 적용되지 않는다.
 
 저희 팀은 기존에 Next14 버전을 사용하고 있었습니다.
