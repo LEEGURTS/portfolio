@@ -30,7 +30,7 @@ export const aniwhereData: DetailDataType = {
   },
   sideInfo: {
     github: "https://github.com/Project-aniwhere",
-    duration: "2024.10 ~",
+    duration: "2024.10 ~ 2025.03",
     fe_dev: ["이근성", "박종권", "홍유진"],
     be_dev: ["김운채", "권우현", "장우진"],
     url: "https://aniwhere.duckdns.org",
